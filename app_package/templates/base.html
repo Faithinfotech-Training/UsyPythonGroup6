@@ -1,41 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>
-            {% if title %}
-                {{title}}
-            {% else %}
-                 welcome to TAMS
-            {% endif %}
+<!DOCTYPE HTML>
+    <html>
+        <head>
+                <link rel="stylesheet" href="/static/css/tams.css">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+         <link rel="icon" href="/static/images/bk.jpeg">
+            <title>
+                {%if title%}
+                    {{title}}
+                {%else%}
+                Welcome to TAMS
+                {%endif%}
             
-            </title>         
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel='stylesheet' href='../static/css/....css'>
-         
-        <link rel='icon' href='../static/images/....png'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        
+            </title>
+            
+            
+           
         </head>
         <body>
-           {% with messages=get_flashed_messages() %}
-               {% if messages %}
-               <ul>
-               {% for message in messages %}
-                  <li>{{message}}</li>
-               {% endfor %}
-               </ul>
-               {% endif %}
-            {% endwith %}      
-
-          {% block content %}{% endblock %} 
-           
-           
-           
-         
-             
+                <div id="header">
+                        <div>
+                            
+                                <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+                                  <img style=" height: 5%;
+                              width: 10%;" src="/static/images/logo.png" alt="">      
+                                  <a class="navbar-brand" href="#">Menu</a>
+                                      
+                                      <ul class="navbar-nav">
+                                        <li class="nav-item ">
+                                          <a class="nav-link " style="padding-left:60em" href="">Logout</a>
+                                        </li>
+                                        
+                                      </ul>
+                                    </nav>
+                                </div>
+    
+                        </div>
+                    
+                      <div calss="base-content">
+        {%with messages=get_flashed_messages()%}
+            {%if messages%}
+            
+            {%for message in messages%}
+                <p style="color:red;text-align:center;padding-top: 50px">
+                        {{message}}
+                        </p>
+                {%endfor%}
+          
+             {%endif%}
+        {%endwith%}
+         {% block content %}{% endblock %}
+        </div>
+         <div id="footer">
+                <div id="footer-content">
+                  <p>&copy;2020 All Rights Reserved. &nbsp;&nbsp; Design by <a href="">UST-pythongroup6</a>.</p>
+                </div>
+              </div>
         </body>
-       </html>     
+       
+      </html>
+

@@ -1,22 +1,21 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,BooleanField,SubmitField,IntegerField,RadioField
-from wtforms.validators import DataRequired, EqualTo
-from app_package.models import User
+from wtforms import StringField,PasswordField,BooleanField,SubmitField,IntegerField,RadioField,SelectField
+from wtforms.validators import DataRequired, EqualTo,ValidationError,NumberRange
 
-class LoginForm(FlaskForm):
-    username=StringField("Username:",validators=[DataRequired()])
-    password=PasswordField("Password:",validators=[DataRequired()])
-    remember_me=BooleanField("Remember Me")
-    submit=SubmitField("Sign in")       
+
+class AddResourceForm(FlaskForm):
+    res_name=StringField("Resource name ",validators=[DataRequired()])
+    res_capacity=IntegerField("Capacity ",validators=[DataRequired(),NumberRange(min=1)])
+    res_status=SelectField("Type of use", choices = [('available','available'),('not available','not available')])
+    res_rent=IntegerField("Resource rent ",validators=[DataRequired(),NumberRange(min=0)])
+    type_of_use=SelectField("Type of use", choices = [('training','training'),('seminar','seminar'),('practicals','practicals')])
+    submit=SubmitField("Create new resource")
     
-class RegistrationForm(FlaskForm):
-    username=StringField("Username:",validators=[DataRequired()])
-    password=PasswordField("Password:",validators=[DataRequired()])
-    password2=PasswordField("Repeat password:",validators=[DataRequired(),EqualTo("password")])
-    submit=SubmitField("Register")      
+class UpdateResourceForm(FlaskForm):
     
-    def validate_username(self,username):
-        user=User.query.filter_by(username=username.data).first()
-        if user is not None:
-            raise ValidationError("Username exists, choose another one")
+    res_capacity=IntegerField("New capacity ",validators=[NumberRange(min=1)])
+    res_status=SelectField("Type of use", choices = [('available','available'),('not available','not available')])
+    res_rent=IntegerField("Enter the rent  ",validators=[NumberRange(min=0)])
+    type_of_use=SelectField("Type of use", choices = [('training','training'),('seminar','seminar'),('practicals','practicals')])
+    submit=SubmitField("Update")
                 
