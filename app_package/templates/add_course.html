@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <table class="table" style="width: 600px; margin:auto; border: 2px solid black; border-collapse: collapse;">
+    <legend style="text-align: center;">Add Course</legend>
+    <tr>
+        <td>{{form.coursename.label}}</td><td>{{form.coursename(size=32,autofocus=True)}}
+    {% for error in form.coursename.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+    </tr>
+    <tr>
+        <td>{{form.courseduration.label}}</td><td>{{form.courseduration(size=32)}}
+    {% for error in form.courseduration.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+   </tr>
+    <tr>
+        <td>{{form.coursefee.label}}</td> <td>{{form.coursefee(size=32)}}
+    {% for error in form.coursefee.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+        </tr>
+
+        <tr>
+    <td>{{form.coursestatus.label}}</td><td>{{form.coursestatus(size=3)}}
+    {% for error in form.coursestatus.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+    </tr>
+
+    <tr>
+    <td>{{form.coursedescription.label}}</td><td>{{form.coursedescription(size=32)}}
+        {% for error in form.coursedescription.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}</td>
+    </tr>
+   <tr> <td>{{form.submit()}}</td></tr>
+
+    </table>
+</div>
+</div>
+</div>
+   
+</form>
+{% endblock %}                    
