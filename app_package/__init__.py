@@ -5,6 +5,7 @@ from app_package.config import Config
 from flask_pymongo import PyMongo
 #from flask_login import LoginManager
 
+
 app=Flask(__name__)
 app.config.from_object(Config)
 #db=SQLAlchemy(app)
@@ -14,3 +15,6 @@ mongo=PyMongo(app)
 #login_manager.login_view="menu"
 
 from app_package import batchroutes
+#login_manager.login_view="index"
+
+from app_package import models,resourcesroute
