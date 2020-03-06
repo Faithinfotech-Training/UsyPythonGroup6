@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+    <a class="navbar-brand" href="#">HOME</a>
+  
+  <ul class="navbar-nav">
+    <li class="nav-item ">
+      <a class="nav-link " style="padding-left:72.5em" href="">Logout</a>
+    </li>
+  </ul>
+</nav>
+</div>
+<table class="table table-dark">
+    <ul>
+        <li><form method="POST" action="{{url_for('add_batch')}}"></li>
+    </ul>
+    <!--<form method="POST" action="{{url_for('add_batch')}}">-->
+    <tr>
+        <th>Id</th>
+        <th>Batch Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+         <th>Course Name</th>
+        <th>Batch Status</th>
+        <th>Action</th>
+   </tr>
+   {% for batchh in batches %}
+        <tr>
+            <td>{{batchh._id}}</td>
+            <td>{{batchh.batch_name}}</td>
+            <td>{{batchh.start_date}}</td>
+            <td>{{batchh.end_date}}</td>
+            <td>{{batchh.course_name}}</td>
+            <td>{{batchh.batch_status}}</td>
+            <td><a href="{{url_for('modify_batch',a=batchh._id)}}">EDIT</a></td>
+    {% endfor %}
+<tr><td><button type="Submit">ADD BATCH</button></tr></td>
+</table>
+{% endblock %}

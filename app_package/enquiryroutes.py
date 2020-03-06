@@ -4,9 +4,6 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app_package.enquiryforms import EnquiryForm,EnquirySearchForm,EnquiryUpdateForm,EnquiryFilterForm
 from app_package.models import User
 
-@app.route("/",methods=["GET","POST"])
-def index():
-    return redirect(url_for("Enquiryhome"))
 
 @app.route("/Enquiryhome",methods=["GET","POST"])
 def Enquiryhome():
