@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+    <form action="{{url_for('Admission_add')}}" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <legend>Admission Form</legend>
+    <table class="table table-hover">
+       
+        <tbody>
+            <tr><td>{{f2.e_name.label}}</td><td>{{f2.e_name(size=32, autofocus=True,value=edata.e_name)}}
+                {% for error in f2.e_name.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td>
+            </tr>
+            <tr><td>{{f2.e_gender.label}}</td><td>{{f2.e_gender(size=32)}}
+                {% for error in f2.e_gender.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            <tr><td>{{form.e_phone.label}}</td><td>{{form.e_phone(size=32)}}
+                {% for error in form.e_phone.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}</td></tr>
+            
+            <tr><td>{{f2.e_email.label}}</td><td>{{f2.e_email(size=32,value=edata.e_email)}}
+                {% for error in f2.e_email.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>   
+            <tr><td>{{f2.e_qualification.label}}</td><td>{{f2.e_qualification(size=32,value=edata.e_qualification)}}
+                {% for error in f2.e_qualification.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            
+            <tr><td>{{f2.e_course_of_interest.label}}</td><td>{{f2.e_course_of_interest(size=32,value=edata.e_course_of_interest)}}
+                {% for error in f2.e_course_of_interest.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            <tr><td>{{f2.e_year_of_pass.label}}</td><td>{{f2.e_year_of_pass(size=32,value=edata.e_year_of_pass)}}
+                {% for error in f2.e_year_of_pass.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            <tr><td>{{f2.e_status.label}}</td><td>{{f2.e_status}}
+                {% for error in f2.e_status.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+  
+            <tr><td>{{f2.e_batch.label}}</td><td>{{f2.e_batch(size=32)}}
+                    {% for error in f2.e_batch.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+        
+            <tr><td>{{f2.e_guardianname.label}}</td><td>{{f2.e_guardianname(size=32)}}
+                    {% for error in f2.e_guardianname.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr><td>{{f2.e_guardianphone.label}}</td><td>{{f2.e_guardianphone(size=32)}}
+                    {% for error in f2.e_guardianphone.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr><td>{{f2.e_address.label}}</td><td>{{f2.e_address(size=32)}}
+                    {% for error in f2.e_address.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr></tr>
+        </tbody>
+       
+    </table>
+    <p>{{f2.submit()}}</p>
+</fieldset>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+    <form action="" method="POST" novalidate>
+        {{form.hidden_tag()}}
+    <legend>Update Form</legend>
+    <p>
+        {{form.eu_name.label}}{{form.eu_name(size=32, autofocus=True,value=e.e_name)}}
+        {% for error in form.eu_name.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    
+    <p>
+        {{form.eu_phone.label}}{{form.eu_phone(size=32,value=e.e_phone)}}
+        {% for error in form.eu_phone.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.eu_email.label}}{{form.eu_email(size=32,value=e.e_email)}}
+        {% for error in form.eu_email.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.eu_qualification.label}}{{form.eu_qualification(size=32,value=e.e_qualification)}}
+        {% for error in form.eu_qualification.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.eu_course_of_interest.label}}{{form.eu_course_of_interest(size=32,value=e.e_course_of_interest)}}
+        {% for error in form.eu_course_of_interest.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.eu_year_of_pass.label}}{{form.eu_year_of_pass(size=32,value=e.e_year_of_pass)}}
+        {% for error in form.eu_year_of_pass.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.eu_status.label}}{{form.eu_status(value=e.e_status)}}
+        {% for error in form.eu_status.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>{{form.submit()}}</p>
+    </form>
+    </fieldset>
+{% endblock %}

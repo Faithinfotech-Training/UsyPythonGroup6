@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+    <form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <legend>Search</legend>
+    <p>
+        {{form.e_phone.label}}{{form.e_phone(size=32, autofocus=True)}}
+        {% for error in form.e_phone.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>{{form.submit()}}</p>
+</fieldset>
+{% endblock %}

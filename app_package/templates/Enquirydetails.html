@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <fieldset>
+        <legend>Profile</legend>
+        <table class="table table-hover">
+            {% for ec in edata %}
+            <tbody>
+            
+            <tr><td>Name</td><td>{{ec.e_name}}</td></tr>
+            <tr><td>Gender</td><td>{{ec.e_gender}}</td></tr>
+            <tr><td>Phone</td><td>{{ec.e_phone}}</td></tr>
+            <tr><td>Email</td><td>{{ec.e_email}}</td></tr>
+            <tr><td>Qualification</td><td>{{ec.e_qualification}}</td></tr>
+            <tr><td>Course Of Interest</td><td>{{ec.e_course_of_interest}}</td></tr>
+            <tr><td>Year Of Pass</td><td>{{ec.e_year_of_pass}}</td></tr>
+            <tr><td>Status</td><td>{{ec.e_status}}</td></tr>
+            <tr><td><a href="{{url_for('Enquirystatusupdate',eid=ec._id)}}">Update</a></td><td><a href="{{url_for('Enquiryhome')}}">Back</td></tr>
+            <tr></tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </fieldset>
+</div>
+
+{% endblock %}

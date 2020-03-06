@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+    <form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <legend>Enquiry Form</legend>
+    <p>
+        {{form.e_name.label}}{{form.e_name(size=32, autofocus=True)}}
+        {% for error in form.e_name.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_gender.label}}{{form.e_gender(size=32)}}
+        {% for error in form.e_gender.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_phone.label}}{{form.e_phone(size=32)}}
+        {% for error in form.e_phone.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_email.label}}{{form.e_email(size=32)}}
+        {% for error in form.e_email.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_qualification.label}}{{form.e_qualification(size=32)}}
+        {% for error in form.e_qualification.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_course_of_interest.label}}{{form.e_course_of_interest(size=32)}}
+        {% for error in form.e_course_of_interest.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_year_of_pass.label}}{{form.e_year_of_pass(size=32)}}
+        {% for error in form.e_year_of_pass.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>
+        {{form.e_status.label}}{{form.e_status}}
+        {% for error in form.e_status.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p>{{form.submit()}}</p>
+</fieldset>
+{% endblock %}
