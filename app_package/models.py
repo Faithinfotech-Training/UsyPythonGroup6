@@ -1,4 +1,4 @@
-from app_package import db, login_manager
+'''from app_package import db
 from flask_login import UserMixin
 from passlib.hash import pbkdf2_sha256 as pbsha
 
@@ -15,4 +15,4 @@ class User(UserMixin, db.Model):
         self.password_hash=pbsha.hash(password)
         
     def check_password(self,password):
-        return pbsha.verify(password,self.password_hash)        
+        return pbsha.verify(password,self.password_hash) '''       

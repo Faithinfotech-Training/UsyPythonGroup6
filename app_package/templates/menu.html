@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Training Academy</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="{{url_for('display_batches')}}">Display Batches</a></li>
+        <li><a href="{{url_for('add_batch')}}">Add Batch</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+      </ul>
+    </div>
+</nav>
+{% endblock %}
