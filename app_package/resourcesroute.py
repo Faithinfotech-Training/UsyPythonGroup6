@@ -7,9 +7,6 @@ from app_package.models import User
 check=True
 res_id=0
 
-@app.route("/",methods=["GET","POST"])
-def index():
-    return render_template("base.html")
 
 @app.route("/add_resource",methods=["GET","POST"])
 def add_resource():

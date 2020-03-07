@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<fieldset>
-    <form action="" method="POST" novalidate>
+<h2 class="jumbotron" style="text-align: center;" >Admission</h2>
+<div>
+<form class="form-horizontal col-md-6" style="margin-left: auto;margin-right: auto;" action="" method="POST" novalidate>
     {{form.hidden_tag()}}
-    <legend>Search</legend>
-    <p>
-        {{form.e_phone.label}}{{form.e_phone(size=32, autofocus=True)}}
-        {% for error in form.e_phone.errors %}
-            <span style="color:red;">{{error}}</span>
-        {% endfor%}	
-    </p>
-    <p>{{form.submit()}}</p>
-</fieldset>
+    <table>
+        <tr>
+            <td>{{form.e_phone.label}}</td><td>{{form.e_phone(size=32, autofocus=True)}}
+                {% for error in form.e_phone.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td>
+        </tr>
+        <tr><td></td><td>{{form.submit()}}</td></tr>
+    </table>
+</form>
 {% endblock %}

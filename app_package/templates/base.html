@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-<<<<<<< HEAD
-=======
     <html>
         <head>
                 <link rel="stylesheet" href="/static/css/tams.css">
@@ -46,7 +44,7 @@
               <a class="nav-link" href="{{url_for('display_course')}}">COURSE</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ADMISSION</a>
+            <a class="nav-link" href="{{url_for('Admissionhome')}}">ADMISSION</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('display_batches')}}">BATCH</a>
@@ -55,7 +53,7 @@
             <a class="nav-link" href="{{url_for('view_resource')}}">RESOURCES</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">ENQUIRY</a>
+            <a class="nav-link" href="{{url_for('Enquiryhome')}}">ENQUIRY</a>
              </li>
           </ul>
         </div>
@@ -94,122 +92,7 @@
         </body>
        
       </html>
->>>>>>> 0c6b6449867bbb157f64ac823f60b58ec42ff42b
-
-<html>
-
-<head>
-
-<link rel="stylesheet"
-href="/static/css/tams.css">
-
-<link rel="stylesheet"
-href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-<link rel="icon"
-href="/static/images/bk.jpeg">
-
-<title>
-
-{%if title%}
-
-    {{title}}
-
-{%else%}
-
-Welcome to TAMS
-
-{%endif%}
-
-
-</title>
 
 
 
-
-</head>
-
-<body>
-
-<div id="header">
-
-<div>
-
-
-<nav class="navbar
-navbar-expand-sm bg-dark navbar-dark">
-
-
-<img style="
-height: 5%;
-
-width: 10%;" src="/static/images/logo.png"
-alt=""> 
-
-<a class="navbar-brand"
-href="#">Menu</a>
-
-
-<ul class="navbar-nav">
-
-<li class="nav-item
-">
-
-<a class="nav-link
-" style="padding-left:60em" href="">Logout</a>
-
-</li>
-
-
-</ul>
-
-</nav>
-
-</div>
-
-
-</div>
-
-
-<div calss="base-content">
-
-{%with messages=get_flashed_messages()%}
-
-    {%if messages%}
-
-
-        {%for message in messages%}
-
-<p style="color:red;text-align:center;padding-top:
-50px">
-
-            {{message}}
-
-</p>
-
-        {%endfor%}
-
-
-    {%endif%}
-
-{%endwith%}
-
-{% block content %}{% endblock %}
-
-</div>
-
-<div id="footer">
-
-<div id="footer-content">
-    <div class="jumbotron" style="text-align: center;"> <p>&copy;2020 All Rights Reserved. &nbsp;&nbsp;
-        Design by <a href="">UST-pythongroup6</a>.</p>  </div>
-</div>
-</div>
-</body>
-</html>
+	
