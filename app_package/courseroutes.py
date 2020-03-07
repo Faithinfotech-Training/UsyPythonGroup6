@@ -2,10 +2,15 @@ from flask import render_template, flash, redirect, url_for
 from app_package import app,mongo
 from flask_login import current_user, login_user, logout_user, login_required
 from app_package.courseforms import AddCourseForm,ModifyCourseForm
-#from app_package.models import User
+from app_package.models import User
 
 check=True
 
+couid=3
+@app.route("/course",methods=["GET","POST"])
+#@login_required
+def course():
+     return redirect(url_for("display_course"))
     
 @app.route("/add_course",methods=["GET","POST"])
 #@login_required
@@ -32,10 +37,10 @@ def add_course():
             tmp=course_col.insert_one(course)
             if tmp.inserted_id==couid:
                 flash("Course added")
-                return redirect(url_for("index"))
+                return redirect(url_for("course"))
             else:
                 flash("Problem adding course")
-                return redirect(url_for("index"))
+                return redirect(url_for("course"))
         else:
             flash("Course name already exists...")
             return redirect(url_for("add_course"))   
@@ -61,7 +66,7 @@ def modify_course(a):
         new_data={"$set":values}
         course_col.update_one(query,new_data)
         flash("Course modified")
-        return redirect(url_for("index")) 
+        return redirect(url_for("course")) 
     else:
         return render_template("modify_course.html",form=form,course=course)
 

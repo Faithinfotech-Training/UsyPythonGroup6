@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for
-from app_package import app, mongo
+from app_package import app,mongo
 from flask_login import current_user, login_user, logout_user, login_required
 from app_package.forms import AddResourceForm,UpdateResourceForm
 from app_package.models import User
@@ -9,7 +9,7 @@ res_id=0
 
 @app.route("/",methods=["GET","POST"])
 def index():
-    return redirect(url_for("view_resource"))
+    return render_template("base.html")
 
 @app.route("/add_resource",methods=["GET","POST"])
 def add_resource():
@@ -38,7 +38,7 @@ def add_resource():
             tmp=res_col.insert_one(resource)
             if tmp.inserted_id==res_id:
                 flash("Resource Added")
-                return redirect(url_for("add_resource"))
+                return redirect(url_for("view_resource"))
             else:
                 flash("Problem adding resource")
                 return redirect(url_for("add_resource"))
