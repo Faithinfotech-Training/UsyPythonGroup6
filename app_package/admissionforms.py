@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,BooleanField,SubmitField,IntegerField,RadioField,TextAreaField
 from wtforms.validators import DataRequired, EqualTo
-from app_package.models import User
+#from app_package.models import User
 
 class AdmissionSearchForm(FlaskForm):
     e_phone=IntegerField("Phone:",validators=[DataRequired()])

@@ -1,15 +1,11 @@
 from flask import render_template, flash, redirect, url_for
-from app_package import app, db,mongo
+from app_package import app,mongo
 from flask_login import current_user, login_user, logout_user, login_required
 from app_package.courseforms import AddCourseForm,ModifyCourseForm
 #from app_package.models import User
 
 check=True
-couid=3
-@app.route("/",methods=["GET","POST"])
-#@login_required
-def index():
-     return redirect(url_for("display_course"))
+
     
 @app.route("/add_course",methods=["GET","POST"])
 #@login_required

@@ -1,26 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container">
+    <div><br>
+            <center><h2>ENQUIRY LIST</h2></center>
+            <br></div>
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+{{form.hidden_tag()}}
 
+    <table class="table table-dark" style="width: 600px; margin:auto;">
 <div>
     <fieldset>
-        <legend>Profile</legend>
-        <table class="table table-hover">
+     <table class="table table-dark">
             {% for ec in edata %}
-            <tbody>
+            <thead class="thead thead-dark">
             
-            <tr><td>Name</td><td>{{ec.e_name}}</td></tr>
-            <tr><td>Gender</td><td>{{ec.e_gender}}</td></tr>
-            <tr><td>Phone</td><td>{{ec.e_phone}}</td></tr>
-            <tr><td>Email</td><td>{{ec.e_email}}</td></tr>
-            <tr><td>Qualification</td><td>{{ec.e_qualification}}</td></tr>
-            <tr><td>Course Of Interest</td><td>{{ec.e_course_of_interest}}</td></tr>
-            <tr><td>Year Of Pass</td><td>{{ec.e_year_of_pass}}</td></tr>
-            <tr><td>Status</td><td>{{ec.e_status}}</td></tr>
-            <tr><td><a href="{{url_for('Enquirystatusupdate',eid=ec._id)}}">Update</a></td><td><a href="{{url_for('Enquiryhome')}}">Back</td></tr>
-            <tr></tr>
-            </tbody>
+            <tr>
+                <td>Name</td>
+                <td>Gender</td>
+                <td>Phone</td>
+                <td>Email</td>
+                <td>Qualification</td>
+                <td>Course Of Interest</td>
+                <td>Year Of Pass</td>
+                <td>Status</td>
+                <td>Update</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>    
+                <td>{{ec.e_name}}</td>
+                <td>{{ec.e_gender}}</td>
+                <td>{{ec.e_phone}}</td>
+                <td>{{ec.e_email}}</td>
+                <td>{{ec.e_qualification}}</td>
+                <td>{{ec.e_course_of_interest}}</td>
+                <td>{{ec.e_year_of_pass}}</td>
+                <td>{{ec.e_status}}</td>
+                <td><a href="{{url_for('Enquirystatusupdate',eid=ec._id)}}">Update</a></td>
+            </tr>
+        </tbody>
+          </table>
+        <p><a class="btn btn-primary col-md-2" style="margin-left: 50%;"href="{{url_for('Enquiryhome')}}">Back</a></p> 
+            
             {% endfor %}
-        </table>
+      
     </fieldset>
 </div>
 

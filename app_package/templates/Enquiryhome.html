@@ -1,29 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<a href="{{url_for('Enquiryform')}}">Add</a>
+
+
+<h2 class="jumbotron" style="text-align: center;" >Enquiry</h2>
+<a class="btn btn-primary col-md-2" style="margin-left: 70%;" href="{{url_for('Enquiryform')}}">Add</a>
 <div>
-<form action="" method="POST" novalidate>
+<form class="form-horizontal col-md-6" style="margin-left: auto;margin-right: auto;" action="" method="POST" novalidate>
     {{form.hidden_tag()}}
-    <fieldset>
-        <legend>Search</legend>
-        <p>{{form.es_type.label}}{{form.es_type(size=32, autofocus=True)}}
+
+        <p class="control-label col-sm-2">{{form.es_type.label}}</p><p class="radio">{{form.es_type(size=32, autofocus=True)}}
         {% for error in form.es_type.errors %}
             <span style="color:red;">{{error}}</span>
         {% endfor %}
         </p>
+
         <p>{{form.es_name.label}}{{form.es_name(size=32, autofocus=True)}}
             {% for error in form.es_name.errors %}
                 <span style="color:red;">{{error}}</span>
             {% endfor %}
         </p>
         <p>{{form.submit()}}</p>
+
+
+
         <p>{{f2.ef_status.label}}{{f2.ef_status}}
             {% for error in f2.ef_status.errors %}
                 <span style="color:red;">{{error}}</span>
             {% endfor %}
         </p>
         <p>{{f2.submit()}}</p>
-    </fieldset>
+    
 </form>
 </div>
 {% endblock %}
