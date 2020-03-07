@@ -4,10 +4,6 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app_package.enquiryforms import EnquiryForm,EnquirySearchForm,EnquiryUpdateForm,EnquiryFilterForm
 from datetime import date
 
-@app.route("/",methods=["GET","POST"])
-def menu():
-    return redirect(url_for("Enquiryhome"))
-
 
 @app.route("/Enquiryhome",methods=["GET","POST"])
 def Enquiryhome():
