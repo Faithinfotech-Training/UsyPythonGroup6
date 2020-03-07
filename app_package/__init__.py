@@ -17,5 +17,4 @@ mongo=PyMongo(app)
 from app_package import batchroutes
 #login_manager.login_view="index"
 
-from app_package import enquiryroutes,admissionroutes, models
-from app_package import models,resourcesroute,courseroute
+from app_package import resourcesroute,courseroutes,batchroutes

@@ -6,9 +6,10 @@ from app_package.batchforms import AddBatchForm,ModifyBatchForm
 
 check=True
 batch_id=0
-@app.route("/",methods=["GET","POST"])
-def menu():
+@app.route("/batch",methods=["GET","POST"])
+def batch():
     return redirect(url_for("display_batches"))
+
 @app.route("/add_batch",methods=["GET","POST"])
 #@login_required
 def add_batch():
@@ -37,7 +38,7 @@ def add_batch():
             tmp=batch_col.insert_one(batch)
             if tmp.inserted_id==batch_id:
                 flash("New Batch Added")
-                return redirect(url_for("menu"))
+                return redirect(url_for("batch"))
             else:
                 flash("Problem adding batch")
                 return redirect(url_for("logout"))
@@ -64,7 +65,7 @@ def modify_batch(a):
         batch_col=mongo.db.batches
         batch_col.update_one(query,new_data)
         flash("Batch modified")
-        return redirect(url_for("menu"))
+        return redirect(url_for("batch"))
     else:
         return render_template("modify_batch.html",form=form,batch=batch)
 
@@ -77,4 +78,4 @@ def display_batches():
 
 @app.route("/logout")
 def logout():
-    return redirect(url_for("menu"))
+    return redirect(url_for("batch"))
