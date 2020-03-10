@@ -27,7 +27,7 @@ def Admissionhome():
             if edata["e_status"]=='Exam Passed' or edata["e_status"]!='Joined':
                 return render_template("Admissionform.html",form=form,f2=f2,edata=edata)
             else:
-                flash("Not Applicable Candidate")
+                flash("Not applicable candidate")
                 return redirect(url_for("Admissionhome"))
     else:
         return render_template("Admissionhome.html",form=form)
