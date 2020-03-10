@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+        </nav>
+<div>
+
+
+<div class="login">
+        <div class="panel panel-default">
+                <div class="panel-body">
+                    <fieldset>
+    <form class="form-group" id="loginid" action="{{url_for('index')}}" method="POST" novalidate>
+        {{form.hidden_tag()}}
+        
+                    <legend style="width: 80px; padding:4px;">Login</legend>
+                    <div class="panel panel-default" id="loginform">
+                        <div class="panel-body">
+                            <p>
+                            {{form.username.label}}{{form.username(size=32, autofocus=True)}}
+                            {% for error in form.username.errors %}
+                                <span style="color:green;">{{error}}</span>
+                            {% endfor %}
+                            </p>
+                            <p>
+                            {{form.password.label}}{{form.password(size=32)}}
+                            {% for error in form.password.errors %}
+                                <span style="color:red;">{{error}}</span>
+                            {% endfor %}
+                            </p>
+                            <!-- <p>{{form.remember_me()}}{{form.remember_me.label}}</p> -->
+                            <p>{{form.submit()}}</P>
+
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %} 

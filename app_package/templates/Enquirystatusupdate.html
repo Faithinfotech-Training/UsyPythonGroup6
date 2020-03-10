@@ -1,57 +1,110 @@
 {% extends "base.html" %}
 {% block content %}
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </button>
+        </nav>
 <div class="container">
     <div><br>
-            <center><h2>ENQUIRY UPDATE FORM</h2></center>
+            <h1>Enquiry Update form</h1>
             <br></div>
     <div class="row">
             <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 <form action="" method="POST" novalidate>
 {{form.hidden_tag()}}
 
-    <table class="table table-dark" style="width: 600px; margin:auto;">
 
-<div>
-<fieldset>
+
     <form action="" method="POST" novalidate>
         {{form.hidden_tag()}}
-    <legend>Update Form</legend>
-    <table class="table table-dark">
+    <h3>Update Form</h3>
+    <table class="table table-dark table-hover" style="width: 500px;
+    margin-left: auto;
+    margin-right: auto;">
         <tbody>
             <tr><td>{{form.eu_name.label}}</td><td>{{form.eu_name(size=32, autofocus=True,value=e.e_name)}}
                 {% for error in form.eu_name.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td>{{form.eu_phone.label}}</td><td>{{form.eu_phone(size=32,value=e.e_phone)}}
                 {% for error in form.eu_phone.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td> {{form.eu_email.label}}</td><td>{{form.eu_email(size=32,value=e.e_email)}}
                 {% for error in form.eu_email.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td>{{form.eu_qualification.label}}</td><td>{{form.eu_qualification(size=32,value=e.e_qualification)}}
                 {% for error in form.eu_qualification.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td> {{form.eu_course_of_interest.label}}</td><td> {{form.eu_course_of_interest(size=32,value=e.e_course_of_interest)}}
                 {% for error in form.eu_course_of_interest.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td>{{form.eu_year_of_pass.label}}</td><td>{{form.eu_year_of_pass(size=32,value=e.e_year_of_pass)}}
                 {% for error in form.eu_year_of_pass.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td> {{form.eu_status.label}}</td><td> {{form.eu_status(value=e.e_status)}}
                 {% for error in form.eu_status.errors %}
-                    <span style="color:red;">{{error}}</span>
+                    <span style="color:blueviolet;">{{error}}</span>
                 {% endfor%}	</td></tr>
             <tr><td></td><td>{{form.submit()}}</td></tr>
         </tbody>
     </table>
     <br>
-    <p><a class="btn btn-primary col-md-2" style="margin-left: 50%;"href="{{url_for('Enquiryhome')}}">Back</a></p>
+    <p><a class="btn btn-info col-md-2" href="{{url_for('Enquiryhome')}}">Back</a></p>
     </form>
-    </fieldset>
+    
 </div>
+
+<div class="allnav" style="position: absolute;
+        left: 1px;
+        top: 270px;">
+                <div id="mySidenav" class="sidenav">
+                    <br><br><br>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+                    <a href="{{url_for('Admissionhome')}}">Admission</a>
+                    <a href="{{url_for('display_course')}}">Course</a>
+                    <a href="{{url_for('display_batches')}}">Batch</a>
+                    <a href="{{url_for('view_resource')}}">Resource</a>
+                    
+                </div>
+                <br>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+                <script>
+                function openNav(){
+                    document.getElementById("mySidenav").style.width="250px";
+                
+                }
+                function closeNav(){
+                    document.getElementById("mySidenav").style.width="0";
+                }
+                
+                </script>
 {% endblock %}

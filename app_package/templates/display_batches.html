@@ -2,23 +2,55 @@
 {% block content %}
 
 
-<div class="bgmenu">
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </button>
+        </nav>
+<div>
+
    
    
-     </div>
-     <div class="jumbotron" style="margin-bottom: auto;">
-            <center><h1>Batch Details</h1></center>
-        </div>
-<table class="table table-dark table-hover">
+        <div class="container">
+                <div class="adminhome"><br>
+                        <h1>Batch Details</h1>
+                        <br></div>
+                <div class="row">
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+<table class="table table-dark table-hover" style="margin-left:50px;margin-bottom: 100px;">
     <form method="POST" action="{{url_for('add_batch')}}">
-    
+            <tr><td><button class="btn btn-primary" type="Submit">Add Batch</button></tr></td>
     <tr>
         <th>Id</th>
         <th>Batch Name</th>
         <th>Start Date</th>
         <th>End Date</th>
-        <th>Course Name</th>
+         <th>Course Name</th>
         <th>Batch Status</th>
+        <th>Resource Name</th>
         <th>Action</th>
    </tr>
    {% for batchh in batches %}
@@ -27,10 +59,36 @@
             <td>{{batchh.batch_name}}</td>
             <td>{{batchh.start_date}}</td>
             <td>{{batchh.end_date}}</td>
-            <td>{{batchh.course_name}}</td>
+            <td>{{batchh.coursename}}</td>
             <td>{{batchh.batch_status}}</td>
-            <td><a href="{{url_for('modify_batch',a=batchh._id)}}">EDIT</a></td>
+            <td>{{batchh.res_name}}</td>
+            <td><a class="btn btn-info" href="{{url_for('modify_batch',a=batchh._id)}}">Edit</a></td>
     {% endfor %}
-<tr><td><button type="Submit">ADD BATCH</button></tr></td>
-</table>
+
+</table></div></div></div>
+<div class="allnav" class="position: absolute;
+top: 300px;">
+                <div id="mySidenav" class="sidenav">
+                    <br><br><br>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+                    <a href="{{url_for('Admissionhome')}}">Admission</a>
+                    <a href="{{url_for('display_course')}}">Course</a>
+                    <a href="{{url_for('display_batches')}}">Batch</a>
+                    <a href="{{url_for('view_resource')}}">Resource</a>
+                    
+                </div>
+                <br>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+                <script>
+                function openNav(){
+                    document.getElementById("mySidenav").style.width="250px";
+                
+                }
+                function closeNav(){
+                    document.getElementById("mySidenav").style.width="0";
+                }
+                
+                </script>
+
 {% endblock %}

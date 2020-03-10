@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </button>
+        </nav>
+<div>
+<div class="container">
+    <div><br>
+            <h1>Admission List</h1>
+            <br></div>
+    <div class="row">
+            <div class="col-md-7">
+
+
+    <table class="table table-dark table-hover" style="margin-left: 40px;">
+
+           
+      
+              
+           
+            <thead class="thead thead-dark">
+            
+            <tr>
+                <td>Name</td>
+                <td>Gender</td>
+                <td>Phone</td>
+                <td>Email</td>
+                <td>Qualification</td>
+                <td>Year Of Pass</td>
+                <td>Batch Allocated</td>
+                <td>Guardian Name</td>
+                <td>Guardian Phone</td>
+                <td>Address</td>
+                <td>Update</td>
+            </tr>
+            </thead>
+           
+            <tbody>
+                {% for ec in edata %}
+            <tr>    
+                <td>{{ec.ad_name}}</td>
+                <td>{{ec.ad_gender}}</td>
+                <td>{{ec.ad_phone}}</td>
+                <td>{{ec.ad_email}}</td>
+                <td>{{ec.ad_qualification}}</td>
+                <td>{{ec.ad_year_of_pass}}</td>
+                <td>{{ec.ad_batch}}</td>
+                <td>{{ec.ad_guardianname}}</td>
+                <td>{{ec.ad_guardianphone}}</td>
+                <td>{{ec.ad_address}}</td>
+                <td><a class="btn btn-info" href="{{url_for('Admissionupdate',eid=ec._id)}}">Update</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+          </table>
+          <br>
+        <a class="btn btn-primary col-md-2" class="margin-left: 27px;" href="{{url_for('Enquiryhome')}}">Back</a>
+            
+         
+
+</div></div>
+</div>
+
+
+<div class="allnav" style="position: absolute;
+margin-top: -180px;
+left: 0px;">
+                <div id="mySidenav" class="sidenav">
+                    <br><br><br>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+                    <a href="{{url_for('Admissionhome')}}">Admission</a>
+                    <a href="{{url_for('display_course')}}">Course</a>
+                    <a href="{{url_for('display_batches')}}">Batch</a>
+                    <a href="{{url_for('view_resource')}}">Resource</a>
+                    
+                </div>
+                <br>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+                <script>
+                function openNav(){
+                    document.getElementById("mySidenav").style.width="250px";
+                
+                }
+                function closeNav(){
+                    document.getElementById("mySidenav").style.width="0";
+                }
+                
+                </script>
+{% endblock %}

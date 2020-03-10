@@ -1,27 +1,28 @@
 <!DOCTYPE HTML>
-    <html>
-        <head>
-                <link rel="stylesheet" href="/static/css/tams.css">
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-         <link rel="icon" href="/static/images/bk.jpeg">
-            <title>
-                {%if title%}
-                    {{title}}
-                {%else%}
-                Welcome to TAMS
-                {%endif%}
-            
-            </title>
-            
-            
+  <html>
+    <head>
+        <link rel="stylesheet" href="../static/css/tams.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+
+        <link rel="stylesheet" type="text/css" href="../static/css1/bootstrap.min.css">
+        <script type="tect/javascript" src="../static/js1/bootstrap.min.js"></script>
+
+        <link rel="icon" href="/static/images/icon.jpeg">
+          <title>
+            {%if title%}
+              {{title}}
+            {%else%}
+              Welcome to tams
+            {%endif%}
+          </title>
            
-        </head>
-        <body style="background-image:url('static/images/bk.jpeg');background-size:cover;">
-          
-                <div id="header">
+    </head>
+    <body>
+    <!-- <body style="background-image:url('static/images/background.jpg');background-size:cover;">       -->
+               <!--  <div id="header">
                         <div>
                             
                                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -44,7 +45,7 @@
               <a class="nav-link" href="{{url_for('display_course')}}">COURSE</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{url_for('Admissionhome')}}">ADMISSION</a>
+            <a class="nav-link" href="#">ADMISSION</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('display_batches')}}">BATCH</a>
@@ -53,7 +54,7 @@
             <a class="nav-link" href="{{url_for('view_resource')}}">RESOURCES</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{url_for('Enquiryhome')}}">ENQUIRY</a>
+            <a class="nav-link" href="#">ENQUIRY</a>
              </li>
           </ul>
         </div>
@@ -68,31 +69,27 @@
                                 </div>
     
                         </div>
-                    
-                      <div calss="base-content">
+                     -->
+
+
+      <div style="background-color: rgba(0, 0, 0, 0.589)">
         {%with messages=get_flashed_messages()%}
-            {%if messages%}
-            
+          {%if messages%}
             {%for message in messages%}
-                <p style="color:red;text-align:center;padding-top: 50px">
-                        {{message}}
-                        </p>
-                {%endfor%}
-          
-             {%endif%}
-        {%endwith%}
-         {% block content %}{% endblock %}
-        </div>
-         <div id="footer">
-                <div style="padding-top: 500px;" >
-                  <p><center>&copy;2020 All Rights Reserved. &nbsp;&nbsp; Design by <a href="">UST-pythongroup6</a>.</center></p>
-                </div>
-              </div>
-
-        </body>
+              <p style="color:blueviolet;text-align:center;padding-top: 50px">
+                {{message}}
+              </p>
+            {%endfor%}  
+          {%endif%}
+            {%endwith%}
+            
+      </div>{% block content %}{% endblock %}
+      <div>
+          <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center fixed-bottom">
+              <p>&copy;2020 All Rights Reserved. &nbsp;&nbsp; Design by <a href="">UST-pythongroup6</a></p>
+          </nav>
+        <div>
+    </body>
        
-      </html>
+  </html>
 
-
-
-	

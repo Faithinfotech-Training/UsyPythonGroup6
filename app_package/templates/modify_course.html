@@ -1,49 +1,73 @@
 {% extends "base.html" %}
 {% block content %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link disabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+           
+        </nav>
+<div>
 <div class="container">
-        <div><br>
-                <center><h2>UPDATE COURSES</h2></center>
+        <div class="adminhome">
+                <h1>Modify Course</h1>
                 <br></div>
         <div class="row">
                 <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 <form action="" method="POST" novalidate>
     {{form.hidden_tag()}}
     
-        <table class="table table-dark" style="width: 600px; margin:auto;">
+        <table class="table table-dark" style="width: 600px; margin:auto;margin-bottom: 100px;">
     
                 <tr>
                         <td>{{form.coursename.label}}</td><td>{{form.coursename(size=32,value=course.coursename)}}
             {% for error in form.coursename.errors %}
-                <span style="color:red;">{{error}}</span>
+                <span style="color:blueviolet;">{{error}}</span>
             {% endfor %}
         </td>
     </tr>
     <tr>
         <td>{{form.courseduration.label}}</td><td>{{form.courseduration(size=32,value=course.courseduration)}}
             {% for error in form.courseduration.errors %}
-                <span style="color:red;">{{error}}</span>
+                <span style="color:blueviolet;">{{error}}</span>
             {% endfor %}
         </td>
     </tr>
    <tr>
     <td>{{form.coursefee.label}}</td><td>{{form.coursefee(size=32,value=course.coursefee)}}
         {% for error in form.coursefee.errors %}
-            <span style="color:red;">{{error}}</span>
+            <span style="color:blueviolet;">{{error}}</span>
         {% endfor %}</td> 
     </tr>
     <tr>
-    <td>{{form.coursestatus.label}}</td><td>{{form.coursestatus(size=3,value=course.coursestatus)}}
+    <td>{{form.coursestatus.label}}</td><td>{{form.coursestatus(value=course.coursestatus)}}
         {% for error in form.coursestatus.errors %}
-            <span style="color:red;">{{error}}</span>
+            <span style="color:blueviolet;">{{error}}</span>
         {% endfor %}
     </td>
      </tr>
     <tr>
     <td>{{form.coursedescription.label}}</td><td>{{form.coursedescription(size=32,value=course.coursedescription)}}
             {% for error in form.coursedescription.errors %}
-                <span style="color:red;">{{error}}</span>
+                <span style="color:blueviolet;">{{error}}</span>
             {% endfor %}
         </td>
     </td>
@@ -54,14 +78,39 @@
             
         </tr>
         <tr>
-                <td><p><a href="{{url_for('display_course')}}">View courses</a></td>
+                <td><a class="btn btn-info" href="{{url_for('display_course')}}">View courses</td>
             
             </tr>
-    </table>
+    </table></form>
 </div>
 </div>
 </div>
-    
-</form>
+<div class="allnav" style="position: absolute;
+margin-top: -556px;
+
+margin-left: 0px;">
+        <div id="mySidenav" class="sidenav">
+            <br><br><br>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+            <a href="{{url_for('Admissionhome')}}">Admission</a>
+            <a href="{{url_for('display_course')}}">Course</a>
+            <a href="{{url_for('display_batches')}}">Batch</a>
+            <a href="{{url_for('view_resource')}}">Resource</a>
+            
+        </div>
+        <br>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+        <script>
+        function openNav(){
+            document.getElementById("mySidenav").style.width="250px";
+        
+        }
+        function closeNav(){
+            document.getElementById("mySidenav").style.width="0";
+        }
+        
+        </script>
+
 {%endblock%}
    

@@ -10,13 +10,14 @@ class AddBatchForm(FlaskForm):
     date=datetime.datetime.today()
     start_date=DateTimeField("Start Date",default=date.today())
     end_date=DateTimeField("End Date",default=date.today())
-    course_name=SelectField("Course Name: ",choices=[('Java','Java'),('Python','Python'),('.net','.net')])
+    coursename=SelectField("Course Name: ",coerce=str,validators=[DataRequired()])
     batch_status=SelectField("Batch Status: " , choices=[('Disabled','Disabled'),('Active','Active')])
+    res_name=SelectField("Resource Name:" ,coerce=str,validators=[DataRequired()])
     submit=SubmitField("Add New Batch")
 
 class ModifyBatchForm(FlaskForm):
-    start_date=DateTimeField("Start Date",format='%Y-%m-%d')
-    end_date=DateTimeField("End Date",format='%Y-%m-%d')
+    start_date=DateTimeField("Start Date")
+    end_date=DateTimeField("End Date")
     batch_status=SelectField("Batch Status: " , choices=[('Disabled','Disabled'),('Active','Active')])
     submit=SubmitField("Modify Batch")
 

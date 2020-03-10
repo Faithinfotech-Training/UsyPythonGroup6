@@ -1,10 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<fieldset>
+<div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </button>
+        </nav>
+<div>
+        <div class="container">
+                <div><br>
+                        <h1>Admission Form</h1>
+                        <br>
+                <div class="row">
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <form action="{{url_for('Admission_add')}}" method="POST" novalidate>
     {{form.hidden_tag()}}
-    <legend>Admission Form</legend>
-    <table class="table table-hover">
+    
+    <table class="table table-dark table-hover" style="width: 600px; margin:auto; margin-bottom:100px;">
        
         <tbody>
             <tr><td>{{f2.e_name.label}}</td><td>{{f2.e_name(size=32, autofocus=True,value=edata.e_name)}}
@@ -38,13 +71,9 @@
                 {% for error in f2.e_year_of_pass.errors %}
                     <span style="color:red;">{{error}}</span>
                 {% endfor%}	</td></tr>
-            <tr><td>{{f2.e_status.label}}</td><td>{{f2.e_status}}
-                {% for error in f2.e_status.errors %}
-                    <span style="color:red;">{{error}}</span>
-                {% endfor%}	</td></tr>
-  
-            <tr><td>{{f2.e_batch.label}}</td><td>{{f2.e_batch(size=32)}}
-                    {% for error in f2.e_batch.errors %}
+            
+            <tr><td>{{f2.batch_name.label}}</td><td>{{f2.batch_name(autofocus=True)}}
+                    {% for error in f2.batch_name.errors %}
                         <span style="color:red;">{{error}}</span>
                     {% endfor %}	</td></tr>
         
@@ -60,10 +89,38 @@
                     {% for error in f2.e_address.errors %}
                         <span style="color:red;">{{error}}</span>
                     {% endfor %}	</td></tr>
-            <tr></tr>
+            <tr><td>{{f2.submit()}}</td></tr>
         </tbody>
        
     </table>
-    <p>{{f2.submit()}}</p>
-</fieldset>
+    
+    </form>
+    </div></div></div>
+    <div class="allnav" style="position: absolute;
+margin-top: -891px;
+height: 900px;
+margin-left: -370px;">
+        <div id="mySidenav" class="sidenav">
+            <br><br><br>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+            <a href="{{url_for('Admissionhome')}}">Admission</a>
+            <a href="{{url_for('display_course')}}">Course</a>
+            <a href="{{url_for('display_batches')}}">Batch</a>
+            <a href="{{url_for('view_resource')}}">Resource</a>
+            
+        </div>
+        <br>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+        <script>
+        function openNav(){
+            document.getElementById("mySidenav").style.width="250px";
+        
+        }
+        function closeNav(){
+            document.getElementById("mySidenav").style.width="0";
+        }
+        
+        </script>
+
 {% endblock %}

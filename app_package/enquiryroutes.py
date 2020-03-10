@@ -15,7 +15,7 @@ def Enquiryhome():
         if search=='Name':
             es_s={"e_name":form.es_name.data}
             edata=es_col.find(es_s)
-            return render_template("Enquirydetails.html",edata=edata)
+            return render_template("Enquirydetails.html",form=form,edata=edata)
         else:
             return render_template("Enquiryhome.html",form=form)
     elif f2.validate_on_submit():
@@ -23,7 +23,7 @@ def Enquiryhome():
         filter=f2.ef_status.data
         es_s={"e_status":filter}
         edata=es_col.find(es_s)
-        return render_template("Enquirydetails.html",edata=edata)
+        return render_template("Enquirydetails.html",form=form,edata=edata)
     else:
        return render_template("Enquiryhome.html",form=form,f2=f2)
 
@@ -73,7 +73,7 @@ def Enquirystatusupdate(eid):
         if form.eu_year_of_pass.data!="":values["e_year_of_pass"]=form.eu_year_of_pass.data
         if form.eu_status.data!="":values["e_status"]=form.eu_status.data
         year= date.today().year
-        if form.e_year_of_pass.data>1900 and form.e_year_of_pass.data<=year:
+        if form.eu_year_of_pass.data>1900 and form.eu_year_of_pass.data<=year:
             new_data={"$set":values}
             query={"_id":eid}
             e_col.update_one(query,new_data)

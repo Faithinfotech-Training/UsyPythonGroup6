@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+    <form action="" method="POST" novalidate>
+    
+    <legend>Admission Form</legend>
+    <table class="table table-hover">
+       
+        <tbody>
+            <tr><td>{{f2.ad_name.label}}</td><td>{{f2.ad_name(size=32, autofocus=True,value=edata.ad_name)}}
+                {% for error in f2.ad_name.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td>
+            </tr>
+           
+            <tr><td>{{f2.ad_phone.label}}</td><td>{{f2.ad_phone(size=32,value=edata.ad_phone)}}
+                {% for error in f2.ad_phone.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}</td></tr>
+            
+            <tr><td>{{f2.ad_email.label}}</td><td>{{f2.ad_email(size=32,value=edata.ad_email)}}
+                {% for error in f2.ad_email.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>   
+            <tr><td>{{f2.ad_qualification.label}}</td><td>{{f2.ad_qualification(size=32,value=edata.ad_qualification)}}
+                {% for error in f2.ad_qualification.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            <tr><td>{{f2.ad_year_of_pass.label}}</td><td>{{f2.ad_year_of_pass(size=32,value=edata.ad_year_of_pass)}}
+                {% for error in f2.ad_year_of_pass.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor%}	</td></tr>
+            
+            <tr><td>{{f2.ad_batch.label}}</td><td>{{f2.ad_batch(autofocus=True)}}
+                    {% for error in f2.ad_batch.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+        
+            <tr><td>{{f2.ad_guardianname.label}}</td><td>{{f2.ad_guardianname(size=32,value=edata.ad_guardianname)}}
+                    {% for error in f2.ad_guardianname.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr><td>{{f2.ad_guardianphone.label}}</td><td>{{f2.ad_guardianphone(size=32,value=edata.ad_guardianphone)}}
+                    {% for error in f2.ad_guardianphone.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr><td>{{f2.ad_address.label}}</td><td>{{f2.ad_address(size=32,value=edata.ad_address)}}
+                    {% for error in f2.ad_address.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}	</td></tr>
+            <tr></tr>
+        </tbody>
+       
+    </table>
+    <p>{{f2.submit()}}</p>
+    </form>
+</fieldset>
+{% endblock %}

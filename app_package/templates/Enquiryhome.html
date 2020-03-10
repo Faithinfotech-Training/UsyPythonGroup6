@@ -1,35 +1,113 @@
 {% extends "base.html" %}
 {% block content %}
-
-
-<h2 class="jumbotron" style="text-align: center;" >Enquiry</h2>
-<a class="btn btn-primary col-md-2" style="margin-left: 70%;" href="{{url_for('Enquiryform')}}">Add</a>
 <div>
-<form class="form-horizontal col-md-6" style="margin-left: auto;margin-right: auto;" action="" method="POST" novalidate>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+          <a class="navbar-brand"><img style="height:45px;" src="/static/images/logo.png" alt=""></a>
+          <a class="navbar-brand">tams.</a>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link diasabled">Training Academy Management System</a>
+            </li>
+          </ul>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                     
+                       
+                            <li style="margin-left: 600px;" class="nav-item dropdown">
+                                   
+                                <a class="nav-link dropdown-toggle" id="navbardrop" href="#" data-toggle="dropdown" >Logged in as:</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Logout</a>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </button>
+        </nav>
+<div>
+
+
+<div class="container">
+        <div><br>
+                <h1>Enquiry Home</h1>
+                <br></div>
+                <p ><a class="btn btn-info col-md-2" style="margin-left: 258px" href="{{url_for('Enquiryform')}}">Enquiry Form</a></p></div>
+
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
     {{form.hidden_tag()}}
-
-        <p class="control-label col-sm-2">{{form.es_type.label}}</p><p class="radio">{{form.es_type(size=32, autofocus=True)}}
-        {% for error in form.es_type.errors %}
-            <span style="color:red;">{{error}}</span>
-        {% endfor %}
-        </p>
-
-        <p>{{form.es_name.label}}{{form.es_name(size=32, autofocus=True)}}
-            {% for error in form.es_name.errors %}
-                <span style="color:red;">{{error}}</span>
-            {% endfor %}
-        </p>
-        <p>{{form.submit()}}</p>
-
-
-
-        <p>{{f2.ef_status.label}}{{f2.ef_status}}
-            {% for error in f2.ef_status.errors %}
-                <span style="color:red;">{{error}}</span>
-            {% endfor %}
-        </p>
-        <p>{{f2.submit()}}</p>
     
+        <table class="table table-dark table-hover" style="width: 600px; margin:auto; margin-bottom: 100px;">
+    
+                <tr>
+                        <td> 
+                                {{form.es_type.label}}<br>{{form.es_type(size=32, autofocus=True)}}
+                {% for error in form.es_type.errors %}
+                    <span style="color:blueviolet;">{{error}}</span>
+                {% endfor %}
+                        </td>
+        </tr>
+        <tr>
+                <td> 
+                        {{form.es_name.label}}<br>{{form.es_name(size=32, autofocus=True)}}
+                {% for error in form.es_name.errors %}
+                    <span style="color:blueviolet;">{{error}}</span>
+                {% endfor %}
+            </td>
+            <tr>
+                    <td>{{form.submit()}}</td>
+                    
+                </tr>
+        </tr>
+                <tr>
+                        <td>
+                                {{f2.ef_status.label}}<br>{{f2.ef_status}}
+                {% for error in f2.ef_status.errors %}
+                    <span style="color:blueviolet;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        
+                
+             <tr>
+                    <td>{{f2.submit()}}</td>
+                    
+                </tr>
+                
+            </table>
 </form>
-</div>
+        </div>
+        </div>
+        </div>
+        <div class="allnav" style="position: absolute;
+        top: 285px;">
+                <div id="mySidenav" class="sidenav">
+                    <br><br><br>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="{{url_for('Enquiryhome')}}">Enquiry</a>
+                    <a href="{{url_for('Admissionhome')}}">Admission</a>
+                    <a href="{{url_for('display_course')}}">Course</a>
+                    <a href="{{url_for('display_batches')}}">Batch</a>
+                    <a href="{{url_for('view_resource')}}">Resource</a>
+                    
+                </div>
+                <br>
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;Menu</span></div>
+                <script>
+                function openNav(){
+                    document.getElementById("mySidenav").style.width="250px";
+                
+                }
+                function closeNav(){
+                    document.getElementById("mySidenav").style.width="0";
+                }
+                
+                </script>
+        
+
+
 {% endblock %}
